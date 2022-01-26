@@ -10,12 +10,18 @@ def get_permission_codename(action, opts):
 
 
 def get_builtin_permissions(opts):
+    """
+    Disable default permissions.
+    """
     return []
 
 
 def monkey_patch():
     from django.contrib.auth import management
+    # Muda o formato do nome das permissões padrões.
     management.get_permission_codename = get_permission_codename
+    
+    # Bloqueia a aplicação inicial das permissões padrões.
     management._get_builtin_permissions = get_builtin_permissions       
 
 
