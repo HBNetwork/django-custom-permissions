@@ -6,7 +6,7 @@ def get_permission_codename(action, opts):
     """
     Return the codename of the permission for the specified action.
     """
-    return '%s.%s.%s' % (opts.app_label, opts.model_name, action)
+    return f'{opts.app_label}.{opts.model_name}.{action}'
 
 
 def get_builtin_permissions(opts):
